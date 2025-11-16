@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import { t, locale } from 'svelte-i18n';
 
   let scrolled = false;
   let mobileMenuOpen = false;
@@ -20,6 +21,15 @@
   const closeMenu = () => {
     mobileMenuOpen = false;
   };
+
+  const setLang = (code: string) => {
+    locale.set(code);
+    try {
+      localStorage.setItem('locale', code);
+    } catch {}
+  };
+  let currentLocale: string = 'en-US';
+  $: currentLocale = $locale ?? 'en-US';
 </script>
 
 <nav class:scrolled>
@@ -29,16 +39,27 @@
       <span class="logo-accent">Barahona</span>
     </a>
 
-    <button class="mobile-toggle" on:click={toggleMobileMenu} aria-label="Toggle menu">
+    <button class="mobile-toggle" on:click={toggleMobileMenu} aria-label={$t('toggleMenuAria')}>
       <span class="hamburger" class:open={mobileMenuOpen}></span>
     </button>
 
     <ul class="nav-links" class:open={mobileMenuOpen}>
-      <li><a href="#home" on:click={closeMenu}>Home</a></li>
-      <li><a href="#about" on:click={closeMenu}>About</a></li>
-      <li><a href="#skills" on:click={closeMenu}>Skills</a></li>
-      <li><a href="#projects" on:click={closeMenu}>Projects</a></li>
-      <li><a href="#contact" on:click={closeMenu}>Contact</a></li>
+      <li><a href="#home" on:click={closeMenu}>{$t('home')}</a></li>
+      <li><a href="#about" on:click={closeMenu}>{$t('about')}</a></li>
+      <li><a href="#skills" on:click={closeMenu}>{$t('skills')}</a></li>
+      <li><a href="#projects" on:click={closeMenu}>{$t('projects')}</a></li>
+      <li><a href="#contact" on:click={closeMenu}>{$t('contact')}</a></li>
+      <li class="locale-switch">
+        <select
+          class="locale-select"
+          aria-label="Language"
+          bind:value={currentLocale}
+          on:change={() => setLang(currentLocale)}
+        >
+          <option value="en-US">EN</option>
+          <option value="es">ES</option>
+        </select>
+      </li>
     </ul>
   </div>
 </nav>
@@ -123,6 +144,25 @@
 
   .nav-links a:hover::after {
     width: 100%;
+  }
+
+  .locale-switch {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .locale-select {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text);
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+  }
+  .locale-select:focus {
+    outline: none;
+    border-color: var(--primary);
   }
 
   .mobile-toggle {

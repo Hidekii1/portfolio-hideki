@@ -1,50 +1,29 @@
 <script lang="ts">
+  import { t } from "svelte-i18n";
 </script>
 
 <section id="about" class="about">
   <div class="container">
     <div class="section-header reveal">
-      <h2>About Me</h2>
+      <h2>{$t('about')}</h2>
       <div class="divider"></div>
     </div>
 
     <div class="about-content">
       <div class="about-text reveal">
-        <p class="intro">
-          Hello! I'm Óscar, an Engineering student based in Madrid, Spain, with
-          a deep passion for
-          <span class="highlight">Cybersecurity</span> and
-          <span class="highlight">Web Development</span>.
-        </p>
+        <p class="intro">{$t('aboutIntro')}</p>
 
-        <p>
-          My journey in technology began with a curiosity about how systems work
-          at their core. This led me to explore various programming languages
-          and frameworks, constantly pushing myself to learn and master new
-          skills.
-        </p>
+        <p>{$t('aboutJourney')}</p>
 
-        <p>
-          I specialize in creating efficient, secure, and user-friendly
-          applications. Whether it's optimizing Windows systems with my
-          WinDebloater projects or building modern web interfaces, I believe in
-          writing clean, maintainable code that makes a difference.
-        </p>
+        <p>{$t('aboutSpecialize')}</p>
 
-        <p>
-          When I'm not coding, you can find me gaming, exploring open-source
-          projects, or learning about the latest trends in cybersecurity and
-          system architecture.
-        </p>
+        <p>{$t('aboutHobbies')}</p>
 
         <div class="fun-fact">
           <div class="fact-icon">✨</div>
           <div class="fact-content">
-            <h4>Fun Fact</h4>
-            <p>
-              Knowing how game cheats are made on the inside has inspired me to
-              become a developer
-            </p>
+            <h4>{$t('funFactTitle')}</h4>
+            <p>{$t('funFactText')}</p>
           </div>
         </div>
       </div>
@@ -52,28 +31,28 @@
       <div class="about-stats reveal">
         <div class="stat-card">
           <div class="stat-number">10+</div>
-          <div class="stat-label">Projects Completed</div>
+          <div class="stat-label">{$t('statsProjects')}</div>
         </div>
 
         <div class="stat-card">
           <div class="stat-number">8+</div>
-          <div class="stat-label">Technologies</div>
+          <div class="stat-label">{$t('statsTechnologies')}</div>
         </div>
 
         <div class="stat-card">
           <div class="stat-number">100%</div>
-          <div class="stat-label">Dedication</div>
+          <div class="stat-label">{$t('statsDedication')}</div>
         </div>
 
         <div class="interests">
-          <h3>Interests & Hobbies</h3>
+          <h3>{$t('interestsTitle')}</h3>
           <div class="interest-tags">
-            <span class="tag">Gaming</span>
-            <span class="tag">Open Source</span>
-            <span class="tag">Anime</span>
-            <span class="tag">System Optimization</span>
-            <span class="tag">Cybersecurity</span>
-            <span class="tag">Web Development</span>
+            <span class="tag">{$t('tagGaming')}</span>
+            <span class="tag">{$t('tagOpenSource')}</span>
+            <span class="tag">{$t('tagAnime')}</span>
+            <span class="tag">{$t('tagSystemOptimization')}</span>
+            <span class="tag">{$t('tagCybersecurity')}</span>
+            <span class="tag">{$t('tagWebDevelopment')}</span>
           </div>
         </div>
       </div>
@@ -141,10 +120,6 @@
     color: var(--text);
   }
 
-  .highlight {
-    color: var(--primary);
-    font-weight: 600;
-  }
 
   .fun-fact {
     display: flex;

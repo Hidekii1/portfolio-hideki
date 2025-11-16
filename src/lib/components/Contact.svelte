@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { t } from "svelte-i18n";
   let formData = {
     name: "",
     email: "",
@@ -21,18 +22,16 @@
 <section id="contact" class="contact">
   <div class="container">
     <div class="section-header reveal">
-      <h2>Get In Touch</h2>
+      <h2>{$t('contactTitle')}</h2>
       <div class="divider"></div>
-      <p class="section-subtitle">Let's create something amazing together</p>
+      <p class="section-subtitle">{$t('contactSubtitle')}</p>
     </div>
 
     <div class="contact-content">
       <div class="contact-info reveal">
-        <h3>Let's Connect</h3>
+        <h3>{$t('contactConnect')}</h3>
         <p class="contact-description">
-          I'm always open to discussing new projects, creative ideas, or
-          opportunities to be part of your visions. Feel free to reach out
-          through any of the following channels.
+          {$t('contactDescription')}
         </p>
 
         <div class="contact-methods">
@@ -56,7 +55,7 @@
               </svg>
             </div>
             <div class="method-content">
-              <h4>Email</h4>
+              <h4>{$t('emailLabel')}</h4>
               <p>oscarbarahona2006@gmail.com</p>
             </div>
           </div>
@@ -79,7 +78,7 @@
               </svg>
             </div>
             <div class="method-content">
-              <h4>Location</h4>
+              <h4>{$t('locationLabel')}</h4>
               <p>Madrid, Spain</p>
             </div>
           </div>
@@ -99,7 +98,7 @@
               </svg>
             </div>
             <div class="method-content">
-              <h4>GitHub</h4>
+              <h4>{$t('githubLabel')}</h4>
               <a
                 href="https://github.com/Hidekii1"
                 target="_blank"
@@ -114,7 +113,7 @@
             href="https://github.com/Hidekii1"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="GitHub"
+            aria-label={$t('githubLabel')}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -132,7 +131,7 @@
             href="https://portfolio-hideki.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Portfolio"
+            aria-label={$t('portfolioLabel')}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -158,40 +157,40 @@
 
       <form class="contact-form reveal" on:submit={handleSubmit}>
         <div class="form-group">
-          <label for="name">Name</label>
+          <label for="name">{$t('nameLabel')}</label>
           <input
             type="text"
             id="name"
             bind:value={formData.name}
-            placeholder="Your name"
+            placeholder={$t('namePlaceholder')}
             required
           />
         </div>
 
         <div class="form-group">
-          <label for="email">Email</label>
+          <label for="email">{$t('emailLabel')}</label>
           <input
             type="email"
             id="email"
             bind:value={formData.email}
-            placeholder="your.email@example.com"
+            placeholder={$t('emailPlaceholder')}
             required
           />
         </div>
 
         <div class="form-group">
-          <label for="message">Message</label>
+          <label for="message">{$t('messageLabel')}</label>
           <textarea
             id="message"
             bind:value={formData.message}
-            placeholder="Your message..."
+            placeholder={$t('messagePlaceholder')}
             rows="6"
             required
           ></textarea>
         </div>
 
         <button type="submit" class="submit-btn">
-          Send Message
+          {$t('sendMessage')}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="20"
@@ -209,15 +208,11 @@
         </button>
 
         {#if status === "success"}
-          <div class="status-message success">
-            Message sent successfully! I'll get back to you soon.
-          </div>
+          <div class="status-message success">{$t('statusSuccess')}</div>
         {/if}
 
         {#if status === "error"}
-          <div class="status-message error">
-            Something went wrong. Please try again.
-          </div>
+          <div class="status-message error">{$t('statusError')}</div>
         {/if}
       </form>
     </div>

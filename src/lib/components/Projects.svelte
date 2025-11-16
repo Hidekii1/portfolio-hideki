@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { t } from "svelte-i18n";
   const projects = [
     {
       title: "WinDebloater 2.0",
@@ -54,11 +55,9 @@
 <section id="projects" class="projects">
   <div class="container">
     <div class="section-header reveal">
-      <h2>Featured Projects</h2>
+      <h2>{$t('projectsFeatured')}</h2>
       <div class="divider"></div>
-      <p class="section-subtitle">
-        A showcase of my recent work and contributions
-      </p>
+      <p class="section-subtitle">{$t('projectsSubtitle')}</p>
     </div>
 
     <div class="projects-grid">
@@ -77,7 +76,7 @@
                     target="_blank"
                     rel="noopener noreferrer"
                     class="project-link"
-                    aria-label="View on GitHub"
+                    aria-label={$t('ariaViewOnGitHub')}
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -98,7 +97,7 @@
                     target="_blank"
                     rel="noopener noreferrer"
                     class="project-link"
-                    aria-label="View live demo"
+                    aria-label={$t('ariaViewLiveDemo')}
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -143,7 +142,7 @@
         rel="noopener noreferrer"
         class="view-more-btn"
       >
-        View All Projects on GitHub
+        {$t('projectsViewAll')}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="20"

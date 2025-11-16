@@ -1,15 +1,19 @@
+<script lang="ts">
+  import { t } from "svelte-i18n";
+</script>
+
 <footer class="footer" aria-label="Pie de página">
   <div class="container">
     <div class="brand">
-      <a href="/" class="logo" aria-label="Inicio">ÓB</a>
+      <a href="/" class="logo" aria-label={$t('home')}>ÓB</a>
       <p class="copyright">&copy; {new Date().getFullYear()} Óscar Barahona</p>
     </div>
 
     <nav class="links" aria-label="Enlaces">
-      <a href="#projects">Proyectos</a>
-      <a href="#skills">Skills</a>
-      <a href="#about">Sobre mí</a>
-      <a href="#contact">Contacto</a>
+      <a href="#projects">{$t('projects')}</a>
+      <a href="#skills">{$t('skills')}</a>
+      <a href="#about">{$t('about')}</a>
+      <a href="#contact">{$t('contact')}</a>
     </nav>
 
     <div class="social" aria-label="Redes sociales">
@@ -18,24 +22,24 @@
         href="https://github.com/Hidekii1"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="GitHub">GitHub</a
+        aria-label={$t('githubLabel')}>{$t('githubLabel')}</a
       >
       <a
         class="social-link"
         href="https://www.linkedin.com/in/oscar-barahona-del-real-711b47382/"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="LinkedIn">LinkedIn</a
+        aria-label={$t('linkedinLabel')}>{$t('linkedinLabel')}</a
       >
       <a
         class="social-link"
         href="mailto:oscarbarahona2006@gmail.com"
-        aria-label="Enviar correo">Email</a
+        aria-label={$t('emailLabel')}>{$t('emailLabel')}</a
       >
     </div>
   </div>
 
-  <p class="note">Hecho con Svelte, con ❤️</p>
+  <p class="note">{$t('footerNote')}</p>
 </footer>
 
 <style>

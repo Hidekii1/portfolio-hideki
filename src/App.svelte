@@ -1,15 +1,22 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import Hero from "./components/Hero.svelte";
-  import About from "./components/About.svelte";
-  import Skills from "./components/Skills.svelte";
-  import Projects from "./components/Projects.svelte";
-  import Contact from "./components/Contact.svelte";
-  import Footer from "./components/Footer.svelte";
-  import Navbar from "./components/Navbar.svelte";
-  import ParticlesBackground from "./components/ParticlesBackground.svelte";
+  import { waitLocale } from "svelte-i18n";
+  import Hero from "./lib/components/Hero.svelte";
+  import About from "./lib/components/About.svelte";
+  import Skills from "./lib/components/Skills.svelte";
+  import Projects from "./lib/components/Projects.svelte";
+  import Contact from "./lib/components/Contact.svelte";
+  import Footer from "./lib/components/Footer.svelte";
+  import Navbar from "./lib/components/Navbar.svelte";
+  import ParticlesBackground from "./lib/components/ParticlesBackground.svelte";
+
+  let i18nReady = false;
 
   onMount(() => {
+    waitLocale().then(() => {
+      i18nReady = true;
+    });
+
     const observerOptions = {
       threshold: 0.1,
       rootMargin: "0px 0px -100px 0px",
@@ -31,18 +38,20 @@
   });
 </script>
 
-<ParticlesBackground />
-<Navbar />
+{#if i18nReady}
+  <ParticlesBackground />
+  <Navbar />
 
-<main>
-  <Hero />
-  <About />
-  <Skills />
-  <Projects />
-  <Contact />
-</main>
+  <main>
+    <Hero />
+    <About />
+    <Skills />
+    <Projects />
+    <Contact />
+  </main>
 
-<Footer />
+  <Footer />
+{/if}
 
 <style>
   main {

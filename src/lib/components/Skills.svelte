@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { t } from "svelte-i18n";
   const skillCategories = [
     {
       title: "Languages",
@@ -36,15 +37,15 @@
 <section id="skills" class="skills">
   <div class="container">
     <div class="section-header reveal">
-      <h2>Skills & Technologies</h2>
+      <h2>{$t('skillsTitle')}</h2>
       <div class="divider"></div>
-      <p class="section-subtitle">The tools and technologies I work with</p>
+      <p class="section-subtitle">{$t('skillsSubtitle')}</p>
     </div>
 
     <div class="skills-grid">
       {#each skillCategories as category}
         <div class="skill-category reveal">
-          <h3 class="category-title">{category.title}</h3>
+          <h3 class="category-title">{category.title === 'Languages' ? $t('catLanguages') : category.title === 'Frontend' ? $t('catFrontend') : $t('catBackendTools')}</h3>
           <div class="skills-list">
             {#each category.skills as skill}
               <div class="skill-item">
@@ -67,30 +68,27 @@
     </div>
 
     <div class="additional-skills reveal">
-      <h3>Additional Expertise</h3>
+      <h3>{$t('additionalSkillsTitle')}</h3>
       <div class="expertise-grid">
         <div class="expertise-card">
           <div class="expertise-icon">🔒</div>
-          <h4>Cybersecurity</h4>
-          <p>
-            Security best practices, vulnerability assessment, and system
-            hardening
-          </p>
+          <h4>{$t('expertCybersecurity')}</h4>
+          <p>{$t('expertCybersecurityDesc')}</p>
         </div>
         <div class="expertise-card">
           <div class="expertise-icon">⚡</div>
-          <h4>System Optimization</h4>
-          <p>Windows optimization, performance tuning, and system debloating</p>
+          <h4>{$t('expertSystemOptimization')}</h4>
+          <p>{$t('expertSystemOptimizationDesc')}</p>
         </div>
         <div class="expertise-card">
           <div class="expertise-icon">🌐</div>
-          <h4>Full Stack Development</h4>
-          <p>End-to-end application development with modern frameworks</p>
+          <h4>{$t('expertFullStack')}</h4>
+          <p>{$t('expertFullStackDesc')}</p>
         </div>
         <div class="expertise-card">
           <div class="expertise-icon">🛠️</div>
-          <h4>Open Source</h4>
-          <p>Contributing to and maintaining open-source projects</p>
+          <h4>{$t('expertOpenSource')}</h4>
+          <p>{$t('expertOpenSourceDesc')}</p>
         </div>
       </div>
     </div>
