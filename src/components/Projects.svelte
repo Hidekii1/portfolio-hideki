@@ -38,6 +38,16 @@
       github: "https://github.com/Hidekii1",
       demo: null,
     },
+    {
+      title: "Yunari Bot Discord",
+      description:
+        "Bot of Discord with various features, such as music playback, role management, and utility commands. Built with Node.js and Discord.js.",
+      tech: ["JavaScript"],
+      image:
+        "https://acf.geeknetic.es/imgri/imagenes/auto/2020/10/24/f5p-muestra.jpg?f=webp",
+      github: "https://github.com/Hidekii1/Yunari-Discord-Bot",
+      demo: null,
+    },
   ];
 </script>
 

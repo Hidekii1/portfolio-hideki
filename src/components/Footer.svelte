@@ -22,7 +22,7 @@
       >
       <a
         class="social-link"
-        href="#"
+        href="https://www.linkedin.com/in/oscar-barahona-del-real-711b47382/"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="LinkedIn">LinkedIn</a
