@@ -1,6 +1,5 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { waitLocale } from "svelte-i18n";
   import Hero from "./lib/components/Hero.svelte";
   import About from "./lib/components/About.svelte";
   import Skills from "./lib/components/Skills.svelte";
@@ -10,13 +9,7 @@
   import Navbar from "./lib/components/Navbar.svelte";
   import ParticlesBackground from "./lib/components/ParticlesBackground.svelte";
 
-  let i18nReady = false;
-
   onMount(() => {
-    waitLocale().then(() => {
-      i18nReady = true;
-    });
-
     const observerOptions = {
       threshold: 0.1,
       rootMargin: "0px 0px -100px 0px",
@@ -38,20 +31,18 @@
   });
 </script>
 
-{#if i18nReady}
-  <ParticlesBackground />
-  <Navbar />
+<ParticlesBackground />
+<Navbar />
 
-  <main>
-    <Hero />
-    <About />
-    <Skills />
-    <Projects />
-    <Contact />
-  </main>
+<main>
+  <Hero />
+  <About />
+  <Skills />
+  <Projects />
+  <Contact />
+</main>
 
-  <Footer />
-{/if}
+<Footer />
 
 <style>
   main {

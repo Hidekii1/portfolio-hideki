@@ -14,14 +14,14 @@
 <section id="home" class="hero">
   <div class="hero-content" class:visible>
     <div class="hero-text">
-      <p class="greeting">{$t('greeting')}</p>
+      <p class="greeting">{$t("greeting")}</p>
       <h1 class="name">Óscar Barahona</h1>
-      <p class="title">{$t('heroTitle')}</p>
-      <p class="subtitle">{$t('heroSubtitle')}</p>
+      <p class="title">{$t("heroTitle")}</p>
+      <p class="subtitle">{$t("heroSubtitle")}</p>
 
       <div class="cta-buttons">
-        <a href="#projects" class="btn primary">{$t('ctaWork')}</a>
-        <a href="#contact" class="btn secondary">{$t('ctaContact')}</a>
+        <a href="#projects" class="btn primary">{$t("ctaWork")}</a>
+        <a href="#contact" class="btn secondary">{$t("ctaContact")}</a>
       </div>
 
       <div class="social-links">
@@ -29,7 +29,7 @@
           href="https://github.com/Hidekii1"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label={$t('githubLabel')}
+          aria-label={$t("githubLabel")}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -47,7 +47,7 @@
           href="https://portfolio-hideki.vercel.app/"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label={$t('portfolioLabel')}
+          aria-label={$t("portfolioLabel")}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
